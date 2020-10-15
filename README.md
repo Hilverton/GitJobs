@@ -1,4 +1,4 @@
-<h1 align='center' style="font-weight: bold">GitJobs</h1>
+<h1 align='center'><strong>GitJobs</strong></h1>
 
 ## Available Scripts
 
