@@ -1,24 +1,25 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 #root {
-  --header: hsl(180, 29%, 50%);
-  --green: hsl(180, 52%, 96%);
-  --background: hsl(180, 52%, 96%);
-  --light-grayish-cyan: hsl(180, 31%, 95%);
-  --dark-grayish-cyan: hsl(180, 8%, 52%);
-  --very-dark-grayish-cyan: hsl(180, 14%, 20%);
-  --white: #fff;
-  --black: #000;
+	--header: hsl(180, 29%, 50%);
+	--green: hsl(180, 52%, 96%);
+	--background: hsl(180, 52%, 96%);
+	--light-grayish-cyan: hsl(180, 31%, 95%);
+	--dark-grayish-cyan: hsl(180, 8%, 52%);
+	--very-dark-grayish-cyan: hsl(180, 14%, 20%);
+	--card-shadow: 0px 1px 1px 2px rgba(0, 0, 0, 0.1);
+	--white: #fff;
+	--black: #000;
 }
 
 html,
 body,
 #root {
-  height: 100%;
-  width: 100%;
-  font-family: 'Spartan', sans-serif;
+	height: 100%;
+	width: 100%;
+	font-family: 'Spartan', sans-serif;
 }
