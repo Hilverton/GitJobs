@@ -1,11 +1,7 @@
 import React from 'react';
 
-function App() {
-  return (
-    <div className='App'>
-      <h1>GitJobs</h1>
-    </div>
-  );
-}
+import { Home } from './pages';
 
-export default App;
+export default function App() {
+  return <Home />;
+}
