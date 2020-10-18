@@ -6,7 +6,7 @@
   background-color: var(--background);
 }
 
-.home .main {
+.home__main {
   width: 80%;
   margin: 0 auto;
   padding: 50px 0;
@@ -16,16 +16,124 @@
   grid-gap: 50px 20px;
 }
 
+.home__form {
+  width: 80%;
+  margin: -30px auto 20px;
+  border-radius: 10px;
+  background-color: var(--white);
+  overflow: hidden;
+  -webkit-box-shadow: var(--card-shadow);
+  -moz-box-shadow: var(--card-shadow);
+  box-shadow: var(--card-shadow);
+}
+
+.home__form form {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  padding: 0 25px;
+}
+
+.home__form form > :nth-child(1) {
+  width: 40%;
+}
+
+.home__form form > :nth-child(2),
+.home__form form > :nth-child(3) {
+  width: 30%;
+  padding-left: 25px;
+}
+
+.home__form form > :nth-child(2) {
+  border-right: 2px solid rgba(0, 0, 0, 0.2);
+  border-left: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.home__form__element {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.home__form__element--last {
+  display: flex;
+  justify-content: space-between;
+}
+
+.home__form__element__wrapper__check label {
+  margin-left: 10px;
+}
+
+.home__form__element__button {
+  background-color: var(--header);
+  color: var(--white);
+  font-size: 16px;
+  width: 100px;
+  height: 70%;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
-  .home .main {
+  .home__main {
     width: 90%;
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .home__form {
+    width: 90%;
+  }
+
+  .home__form form > :nth-child(1),
+  .home__form form > :nth-child(2),
+  .home__form form > :nth-child(3) {
+    width: 100%;
   }
 }
 
 @media (max-width: 425px) {
-  .home .main {
+  .home__main {
     width: 90%;
     grid-template-columns: 1fr;
+  }
+
+  .home__form {
+    width: 90%;
+  }
+
+  .home__form form {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding: 10px 20px;
+  }
+
+  .home__form__element--last {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .home__form form > :nth-child(1),
+  .home__form form > :nth-child(2),
+  .home__form form > :nth-child(3) {
+    width: 100%;
+  }
+
+  .home__form form > :nth-child(2),
+  .home__form form > :nth-child(3) {
+    padding-left: 0;
+  }
+
+  .home__form form > :nth-child(2) {
+    border: none;
+  }
+
+  .home__form__element__button {
+    margin-top: 10px;
+    height: 50px;
+    width: 100%;
   }
 }
