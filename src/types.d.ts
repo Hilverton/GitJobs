@@ -11,3 +11,8 @@ type JobsType = {
   type: string;
   url: string;
 };
+
+type InputProps = {
+  icon: string;
+  placeholder: string;
+};

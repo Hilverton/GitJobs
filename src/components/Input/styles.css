@@ -22,5 +22,6 @@
 @media (max-width: 425px) {
   .input__input {
     font-size: 14px;
+    text-overflow: ellipsis;
   }
 }
