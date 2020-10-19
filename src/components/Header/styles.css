@@ -1,8 +1,8 @@
-header {
+.header {
   background: var(--header) url('../../assets/bg-header-desktop.svg') no-repeat;
 }
 
-header nav {
+.header nav {
   margin: 0 auto;
   padding: 0;
   height: 150px;
@@ -11,18 +11,18 @@ header nav {
   align-items: center;
 }
 
-header nav h1 {
+.header nav h1 {
   color: var(--light-grayish-cyan);
 }
 
 @media (max-width: 768px) {
-  header nav {
+  .header nav {
     width: 90%;
   }
 }
 
 @media (max-width: 375px) {
-  header {
+  .header {
     background: var(--header) url('../../assets/bg-header-mobile.svg') no-repeat;
   }
 }
