@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Home } from './pages';
+import { MainRoute } from './routes';
 
 export default function App() {
-  return <Home />;
+  return <MainRoute />;
 }

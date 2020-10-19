@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 
-import { Header, Card, Input } from '../../components';
+import { Card, Input } from '../../components';
 
 import './styles.css';
 
@@ -34,8 +34,6 @@ export default function Home() {
 
   return (
     <div className='home'>
-      <Header />
-
       <section className='home__form'>
         <form onSubmit={_onSubmit}>
           <div className='home__form__element'>
