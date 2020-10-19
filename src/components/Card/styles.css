@@ -1,3 +1,7 @@
+.link {
+  text-decoration: none;
+}
+
 .card {
   width: 100%;
   height: 100%;
@@ -36,6 +40,7 @@
 .card__main__job {
   font-size: 20px;
   margin: 12px 0;
+  color: var(--black);
 }
 
 .card__footer__location {

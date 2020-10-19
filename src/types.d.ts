@@ -12,6 +12,10 @@ type JobsType = {
   url: string;
 };
 
+type CardProps = {
+  data: JobsType;
+};
+
 type InputProps = {
   icon: string;
   placeholder: string;
