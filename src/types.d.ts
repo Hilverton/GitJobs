@@ -20,3 +20,7 @@ type InputProps = {
   icon: string;
   placeholder: string;
 };
+
+type DetailsParams = {
+  id: string;
+};
