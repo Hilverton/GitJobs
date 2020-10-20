@@ -74,7 +74,7 @@ export default function Home() {
         {load &&
           Array(6)
             .fill(0)
-            .map((cont) => <Shimmer key={cont} />)}
+            .map((_, id) => <Shimmer key={id} />)}
         {jobs.map((job) => (
           <Card key={job.id} data={job} />
         ))}
