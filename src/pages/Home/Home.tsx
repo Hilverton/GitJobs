@@ -1,16 +1,18 @@
 import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 
-import { Card, Input } from '../../components';
+import { Card, Input, Shimmer } from '../../components';
 
 import './styles.css';
 
 export default function Home() {
   const [jobs, setJobs] = useState<JobsType[]>([]);
+  const [load, setLoad] = useState(false);
   const [search, setSearch] = useState('');
   const [location, setLocation] = useState('');
   const [checkbox, setCheckbox] = useState(false);
 
   async function apiData() {
+    setLoad(true);
     const response = await fetch(
       `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?description=${search}&location=${location}&full_time=${checkbox}`,
     );
@@ -19,6 +21,7 @@ export default function Home() {
       console.log(data);
       setJobs(data);
     }
+    setLoad(false);
   }
 
   function _onSubmit(e: FormEvent) {
@@ -68,6 +71,10 @@ export default function Home() {
       </section>
 
       <main className='home__main'>
+        {load &&
+          Array(6)
+            .fill(0)
+            .map((cont) => <Shimmer key={cont} />)}
         {jobs.map((job) => (
           <Card key={job.id} data={job} />
         ))}

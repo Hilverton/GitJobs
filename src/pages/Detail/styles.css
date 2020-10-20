@@ -151,6 +151,8 @@
 .detaill__footer__content {
   width: 60%;
   margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
 }
 
 .detaill__footer__content__job {
@@ -161,6 +163,20 @@
 .detaill__footer__content__company {
   font-size: 14px;
   color: var(--dark-grayish-cyan);
+}
+
+.detail__apply__btn {
+  background-color: var(--header);
+  border: none;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45px;
+  width: 130px;
+  color: var(--white);
+  font-size: 12px;
+  text-decoration: none;
 }
 
 @media (max-width: 425px) {
@@ -192,5 +208,12 @@
 
   .detaill__footer__content {
     width: 90%;
+  }
+
+  .detaill__footer__content div {
+    display: none;
+  }
+  .detaill__footer__content .detail__apply__btn {
+    width: 100%;
   }
 }

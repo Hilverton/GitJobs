@@ -21,7 +21,6 @@ export default function Detail({
         setJob(data);
       }
     }
-
     if (location.state.job) setJob(location.state.job);
     else getData();
   }, [match.params.id, location.state.job]);
@@ -30,15 +29,13 @@ export default function Detail({
     return url.replace(/^(?:https?:\/\/)?(?:www\.)?/i, '').split('/')[0];
   }
 
-  function htmlDescription() {
-    return {
-      __html: job?.description || '',
-    };
+  function getApplyLink(content: string) {
+    return content.replace(/<[^>]*>/g, '');
   }
 
-  function htmlApply() {
+  function html(content: string) {
     return {
-      __html: job?.how_to_apply || '',
+      __html: content,
     };
   }
 
@@ -76,15 +73,23 @@ export default function Detail({
 
             <p className='detail__main__location'>{job?.location}</p>
           </div>
+          <a
+            href={getApplyLink(job?.how_to_apply || '')}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='detail__apply__btn'
+          >
+            Apply Now
+          </a>
         </header>
         <section
           className='detail__main__description'
-          dangerouslySetInnerHTML={htmlDescription()}
+          dangerouslySetInnerHTML={html(job?.description || '')}
         ></section>
       </main>
       <section className='detail__how__apply'>
         <h1>How to Apply</h1>
-        <div dangerouslySetInnerHTML={htmlApply()}></div>
+        <div dangerouslySetInnerHTML={html(job?.how_to_apply || '')}></div>
       </section>
 
       <footer className='detail__footer'>
@@ -93,6 +98,14 @@ export default function Detail({
             <h1 className='detaill__footer__content__job'>{job?.title}</h1>
             <p className='detaill__footer__content__company'>{job?.company}</p>
           </div>
+          <a
+            href={getApplyLink(job?.how_to_apply || '')}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='detail__apply__btn'
+          >
+            Apply Now
+          </a>
         </div>
       </footer>
     </div>
