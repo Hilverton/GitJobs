@@ -24,3 +24,7 @@ type InputProps = {
 type DetailsParams = {
   id: string;
 };
+
+type DetailsLocation = {
+  job: JobsType;
+};

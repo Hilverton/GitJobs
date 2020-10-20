@@ -5,7 +5,15 @@ import './styles.css';
 
 export default function Card({ data }: CardProps) {
   return (
-    <Link to={`/detail/${data.id}`} className='link'>
+    <Link
+      to={{
+        pathname: `/detail/${data.id}`,
+        state: {
+          job: data,
+        },
+      }}
+      className='link'
+    >
       <article className='card'>
         <img
           src={

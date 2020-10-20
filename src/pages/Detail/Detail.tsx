@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { StaticContext } from 'react-router';
 import { RouteComponentProps } from 'react-router-dom';
 
 import './styles.css';
 
-export default function Detail({ match }: RouteComponentProps<DetailsParams>) {
+export default function Detail({
+  match,
+  location,
+}: RouteComponentProps<DetailsParams, StaticContext, DetailsLocation>) {
   const [job, setJob] = useState<JobsType>();
 
   useEffect(() => {
@@ -17,8 +21,10 @@ export default function Detail({ match }: RouteComponentProps<DetailsParams>) {
         setJob(data);
       }
     }
-    getData();
-  }, [match.params.id]);
+
+    if (location.state.job) setJob(location.state.job);
+    else getData();
+  }, [match.params.id, location.state.job]);
 
   function cleanUrl(url: string) {
     return url.replace(/^(?:https?:\/\/)?(?:www\.)?/i, '').split('/')[0];
