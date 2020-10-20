@@ -66,6 +66,7 @@ export default function Detail({
           </a>
         </div>
       </header>
+
       <main className='detail__main'>
         <header className='detail__main__header'>
           <div>
@@ -91,9 +92,13 @@ export default function Detail({
           dangerouslySetInnerHTML={html(job?.description || '')}
         ></section>
       </main>
+
       <section className='detail__how__apply'>
         <h1>How to Apply</h1>
-        <div dangerouslySetInnerHTML={html(job?.how_to_apply || '')}></div>
+        <div
+          className='detail__how__apply__link'
+          dangerouslySetInnerHTML={html(job?.how_to_apply || '')}
+        ></div>
       </section>
 
       <footer className='detail__footer'>
