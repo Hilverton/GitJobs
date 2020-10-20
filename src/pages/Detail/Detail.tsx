@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { StaticContext } from 'react-router';
 import { RouteComponentProps } from 'react-router-dom';
 
+import { GetTime } from '../../utils';
+
 import './styles.css';
 
 export default function Detail({
@@ -67,7 +69,9 @@ export default function Detail({
       <main className='detail__main'>
         <header className='detail__main__header'>
           <div>
-            <span className='detail__main__info'>5h ago • {job?.type}</span>
+            <span className='detail__main__info'>
+              {GetTime(job?.created_at || '')} • {job?.type}
+            </span>
 
             <h3 className='detail__main__job'>{job?.title}</h3>
 

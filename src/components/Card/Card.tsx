@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { GetTime } from '../../utils';
+
 import './styles.css';
 
 export default function Card({ data }: CardProps) {
@@ -23,7 +25,9 @@ export default function Card({ data }: CardProps) {
           alt='Logo'
         />
         <main className='card__main'>
-          <span className='card__main__info'>5h ago • {data.type}</span>
+          <span className='card__main__info'>
+            {GetTime(data.created_at)} • {data.type}
+          </span>
 
           <h3 className='card__main__job'>
             {data.title.length > 30
