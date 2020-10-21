@@ -99,6 +99,7 @@
 
 .detail__main__description {
   margin-top: 20px;
+  overflow-wrap: break-word;
 }
 
 .detail__main__description p strong {
@@ -219,6 +220,7 @@
   .detail__header__info {
     margin-top: 10px;
     flex-direction: column;
+    text-align: center;
   }
 
   .detail__header__info__btn {

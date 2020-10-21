@@ -74,6 +74,21 @@
   cursor: pointer;
 }
 
+.home__error__img {
+  display: block;
+  width: 30%;
+  margin: 40px auto 20px;
+  border-radius: 10px;
+  -webkit-box-shadow: var(--card-shadow);
+  -moz-box-shadow: var(--card-shadow);
+  box-shadow: var(--card-shadow);
+}
+
+.home__error__text {
+  text-align: center;
+  color: var(--dark-grayish-cyan);
+}
+
 @media (max-width: 768px) {
   .home__main {
     width: 90%;
@@ -134,5 +149,9 @@
     margin-top: 10px;
     height: 50px;
     width: 100%;
+  }
+
+  .home__error__img {
+    width: 90%;
   }
 }

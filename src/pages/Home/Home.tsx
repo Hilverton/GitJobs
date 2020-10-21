@@ -1,24 +1,29 @@
 import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 
 import { Card, Input, Shimmer } from '../../components';
+import notFound from '../../assets/not_found.png';
 
 import './styles.css';
 
 export default function Home() {
   const [jobs, setJobs] = useState<JobsType[]>([]);
   const [load, setLoad] = useState(false);
+  const [error, setError] = useState(false);
   const [search, setSearch] = useState('');
   const [location, setLocation] = useState('');
   const [checkbox, setCheckbox] = useState(false);
 
   async function apiData() {
+    let data: JobsType[];
     setLoad(true);
+    setError(false);
     const response = await fetch(
       `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?description=${search}&location=${location}&full_time=${checkbox}`,
     );
     if (response.ok) {
-      const data = await response.json();
-      console.log(data);
+      data = await response.json();
+
+      if (data.length === 0) setError(true);
       setJobs(data);
     }
     setLoad(false);
@@ -69,7 +74,12 @@ export default function Home() {
           </div>
         </form>
       </section>
-
+      {error && (
+        <>
+          <img className='home__error__img' src={notFound} alt='Not Found' />
+          <h3 className='home__error__text'>No results found</h3>
+        </>
+      )}
       <main className='home__main'>
         {load &&
           Array(6)

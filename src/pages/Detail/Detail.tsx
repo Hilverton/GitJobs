@@ -3,6 +3,7 @@ import { StaticContext } from 'react-router';
 import { RouteComponentProps } from 'react-router-dom';
 
 import { GetTime } from '../../utils';
+import noImage from '../../assets/no_image.png';
 
 import './styles.css';
 
@@ -46,7 +47,7 @@ export default function Detail({
       <header className='detail__header'>
         <img
           className='detail__header__img'
-          src={job?.company_logo}
+          src={job?.company_logo || noImage}
           alt='Companie Logo'
         />
         <div className='detail__header__info'>

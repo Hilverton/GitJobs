@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { GetTime } from '../../utils';
+import noImage from '../../assets/no_image.png';
 
 import './styles.css';
 
@@ -17,13 +18,7 @@ export default function Card({ data }: CardProps) {
       className='link'
     >
       <article className='card'>
-        <img
-          src={
-            data.company_logo ||
-            'https://www.youtube.com/about/static/svgs/icons/brand-resources/YouTube_icon_full-color.svg?cache=f2ec7a5'
-          }
-          alt='Logo'
-        />
+        <img src={data.company_logo || noImage} alt='Logo' />
         <main className='card__main'>
           <span className='card__main__info'>
             {GetTime(data.created_at)} • {data.type}
