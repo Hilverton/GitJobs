@@ -22,6 +22,7 @@
   height: 50px;
   margin-top: -25px;
   border-radius: 25%;
+  background-color: var(--white);
 }
 
 .card__main {

@@ -22,7 +22,6 @@ export default function Home() {
     );
     if (response.ok) {
       data = await response.json();
-
       if (data.length === 0) setError(true);
       setJobs(data);
     }
@@ -33,6 +32,9 @@ export default function Home() {
     e.preventDefault();
     setJobs([]);
     apiData();
+  }
+  function scrollTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   useEffect(() => {
@@ -89,6 +91,11 @@ export default function Home() {
           <Card key={job.id} data={job} />
         ))}
       </main>
+      {!load && (
+        <button className='home__button__top' onClick={scrollTop}>
+          Top
+        </button>
+      )}
     </div>
   );
 }

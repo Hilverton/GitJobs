@@ -89,6 +89,20 @@
   color: var(--dark-grayish-cyan);
 }
 
+.home__button__top {
+  position: absolute;
+  bottom: 20px;
+  right: 15px;
+  background-color: var(--header);
+  color: var(--white);
+  height: 50px;
+  width: 50px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  outline: none;
+}
+
 @media (max-width: 768px) {
   .home__main {
     width: 90%;
