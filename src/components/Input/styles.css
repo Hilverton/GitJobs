@@ -17,11 +17,5 @@
   border: none;
   outline: none;
   font-size: 16px;
-}
-
-@media (max-width: 425px) {
-  .input__input {
-    font-size: 14px;
-    text-overflow: ellipsis;
-  }
+  text-overflow: ellipsis;
 }

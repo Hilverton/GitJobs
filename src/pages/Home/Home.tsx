@@ -67,7 +67,7 @@ export default function Home() {
             <div className='home__form__element__wrapper__check'>
               <input onChange={() => setCheckbox(!checkbox)} type='checkbox' />
               <label className='home__form__element__label' htmlFor=''>
-                Full time only
+                Full time
               </label>
             </div>
             <button className='home__form__element__button'>Search</button>
