@@ -91,7 +91,7 @@ export default function Home() {
           <Card key={job.id} data={job} />
         ))}
       </main>
-      {!load && (
+      {!load && jobs.length > 0 && (
         <button className='home__button__top' onClick={scrollTop}>
           Top
         </button>
