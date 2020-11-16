@@ -23,14 +23,17 @@ export default function Card({ data }: CardProps) {
           <span className='card__main__info'>
             {GetTime(data.created_at)} • {data.type}
           </span>
-
           <h3 className='card__main__job'>
             {data.title.length > 30
               ? `${data.title.slice(0, 30)}...`
               : data.title}
           </h3>
 
-          <p className='card__main__company'>{data.company}</p>
+          <p className='card__main__company'>
+            {data.company.length > 30
+              ? `${data.company.slice(0, 30)}...`
+              : data.company}
+          </p>
         </main>
         <footer>
           <p className='card__footer__location'>

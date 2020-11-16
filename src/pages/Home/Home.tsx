@@ -12,16 +12,21 @@ export default function Home() {
   const [search, setSearch] = useState('');
   const [location, setLocation] = useState('');
   const [checkbox, setCheckbox] = useState(false);
+  const [page, setPage] = useState(1);
 
   async function apiData() {
     let data: JobsType[];
+    setJobs([]);
     setLoad(true);
     setError(false);
+    console.log(page);
+
     const response = await fetch(
-      `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?description=${search}&location=${location}&full_time=${checkbox}`,
+      `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?description=${search}&location=${location}&full_time=${checkbox}&page=${page}`,
     );
     if (response.ok) {
       data = await response.json();
+      console.log(data);
       if (data.length === 0) setError(true);
       setJobs(data);
     }
@@ -31,6 +36,7 @@ export default function Home() {
   function _onSubmit(e: FormEvent) {
     e.preventDefault();
     setJobs([]);
+    setPage(1);
     apiData();
   }
   function scrollTop() {
@@ -38,9 +44,10 @@ export default function Home() {
   }
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     apiData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [page]);
 
   return (
     <div className='home'>
@@ -91,9 +98,27 @@ export default function Home() {
           <Card key={job.id} data={job} />
         ))}
       </main>
+      <div className='home__pagination'>
+        {page !== 1 && !load && (
+          <button
+            className='home__pagination__btn'
+            onClick={() => setPage(page - 1)}
+          >
+            <i className='home__pagination__icon fas fa-step-backward'></i>
+          </button>
+        )}
+        {jobs.length === 50 && !load && (
+          <button
+            className='home__pagination__btn'
+            onClick={() => setPage(page + 1)}
+          >
+            <i className='home__pagination__icon fas fa-step-forward'></i>
+          </button>
+        )}
+      </div>
       {!load && jobs.length > 0 && (
         <button className='home__button__top' onClick={scrollTop}>
-          Top
+          <i className='home__pagination__icon fas fa-arrow-up'></i>
         </button>
       )}
     </div>
